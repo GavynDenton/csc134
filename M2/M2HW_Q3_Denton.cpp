@@ -34,10 +34,6 @@ int main() {
     cout << slices_left;
     cout << " slices left over." << endl;
 
-    /*Suggested improvments(add an if statement so that if the value of slices left
-    is zero the program prints a message saying "You wont have any remaining slices"
-    and if the remaining number of slices is negative the program will tell you how
-    many pizzas you need*/ 
     
 
     return 0;
