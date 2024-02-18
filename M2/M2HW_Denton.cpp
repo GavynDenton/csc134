@@ -1,8 +1,8 @@
-// Use as starter for any program
+
 // CSC 134
-// M2HW
+// M2HW - Question 3
 // Denton
-// DATE
+// 2/14/24
 
 #include <iostream>
 using namespace std;
