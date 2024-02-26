@@ -4,13 +4,19 @@
 // 2/26/24
 
 #include <iostream>
+#include <string>
+#include <iomanip>
 using namespace std;
 
 int main() {
+  /* // Question 1 Chat Bot 
+  cout << "Question 1 - ChatBot" << endl;
+  cout << endl;
     // variables
     int ans;
     int ans2;
     int ans3;
+
 
     cout << "Hello!! I'm a chat bot. Do you want to talk?" << endl;
     cout << "Type 1 for yes and 2 for no: ";
@@ -38,9 +44,64 @@ int main() {
     else if (ans == 2) {
         cout << "Ok, maybe next time, goodbye." << endl;
     }
+    cout << endl;
+    cout << endl; */
 
+ // Question 2
+    cout << "Question 2 - Reciept" << endl;
+    cout << endl;
 
+    // set up variables
+    int meal;
+    int dine;
+    double tax_percent = 0.08;
+    int total;
+    int tax_amount;
+    double tip_percent = 0.15;
+    int tip_amount;
 
+    cout << "How much is your meal?\t$";
+    cin >> meal;
+    cout << "Are you dining in or taking out?" << endl;
+    cout << "Type 1 for dine in, and 2 for take out.";
+    cin >> dine;
+    if (dine == 1) {
+    // do calcuations
+    tax_amount = meal * tax_percent;
+    tip_amount = meal * tip_percent;
+    total = meal + tax_amount + tip_amount;
+
+    // pring the reciept
+    // print this once to set the decimals to exactly 2
+    cout << endl;
+    cout << "Hi, i'm your reciept!!!" << endl;
+    cout << "--------------------" << endl;
+    cout << fixed << setprecision(2);
+    cout << "Meal:" << "\t\t$" << meal << endl;
+    cout << "Tax:" << "\t\t$" << tax_amount << endl;
+    cout << "Tip:" << "\t\t$" << tip_amount << endl;
+    cout << "--------------------" << endl;
+    cout << "Total:" << "\t\t$" << total << endl;
+    }
+    else if (dine == 2){
+// do calcuations
+    tax_amount = meal * tax_percent;
+    total = meal + tax_amount;
+
+    // pring the reciept
+    // print this once to set the decimals to exactly 2
+    cout << endl;
+    cout << "Hi, i'm your reciept!!!" << endl;
+    cout << "--------------------" << endl;
+    cout << fixed << setprecision(2);
+    cout << "Meal:" << "\t\t$" << meal << endl;
+    cout << "Tax:" << "\t\t$" << tax_amount << endl;
+    cout << "--------------------" << endl;
+    cout << "Total:" << "\t\t$" << total << endl;
+    }
+    
+
+    
 
 
 
