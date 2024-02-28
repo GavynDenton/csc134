@@ -9,43 +9,50 @@
 using namespace std;
 
 int main() {
-  /* // Question 1 Chat Bot 
+ // Question 1 Chat Bot 
   cout << "Question 1 - ChatBot" << endl;
   cout << endl;
     // variables
-    int ans;
+    int ans1;
     int ans2;
-    int ans3;
+    string text;
 
 
     cout << "Hello!! I'm a chat bot. Do you want to talk?" << endl;
     cout << "Type 1 for yes and 2 for no: ";
-    cin >> ans;
-    if (ans == 1){
+    cin >> ans1;
+    if (ans1 == 2) {
+        cout << "Ok, maybe next time, goodbye." << endl;
+    }
+    else if (ans1 == 1){
         cout << "Awesome, How was your day?" << endl;
         cout << "Type 1 for good, 2 for alright, and 3 for bad: ";
         cin >> ans2;
         if (ans2 == 1){
             cout << "That's good to hear! What made you have a good day?" << endl;
-            cin >> ans3;
+            cin >> text;
             cout << "I can see why that made your day good." << endl;
         }
         else if (ans2 == 2){
             cout << "I'm sorry to hear that. What made your day alright?" << endl;
-           cin >> ans3;
+           cin >> text;
            cout <<  "I can see why that made your day alright." << endl;
         }
         else if (ans2 == 3){
             cout << "I'm sorry to hear that. What made you have a bad day?" << endl;
-            cin >> ans3;
+            cin >> text;
             cout <<  "I can see why that made your day bad." << endl;
         }
+        else {
+            cout << "Thats an invalid answer, please restart." << endl;
+        }
     }
-    else if (ans == 2) {
-        cout << "Ok, maybe next time, goodbye." << endl;
-    }
+    // test -- clear any extra input before part 2
+    cin.clear();
+    cin.ignore(10000, '\n');
+    
     cout << endl;
-    cout << endl; */
+    cout << endl;
 
  // Question 2
     cout << "Question 2 - Reciept" << endl;
@@ -63,7 +70,7 @@ int main() {
     cout << "How much is your meal?\t$";
     cin >> meal;
     cout << "Are you dining in or taking out?" << endl;
-    cout << "Type 1 for dine in, and 2 for take out.";
+    cout << "Type 1 for dine in, and 2 for take out. ";
     cin >> dine;
     if (dine == 1) {
     // do calcuations
