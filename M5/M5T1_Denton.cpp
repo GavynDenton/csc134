@@ -1,4 +1,3 @@
-// Use as starter for any program
 // CSC 134
 // ASSIGNMENT
 // Denton
