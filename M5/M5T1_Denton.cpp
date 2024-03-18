@@ -6,7 +6,7 @@
 #include <iostream>
 using namespace std;
 
-// Goal-
+// Goal -
 // Create one void function,
 // and one value returning function
 
