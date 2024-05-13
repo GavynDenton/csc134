@@ -4,8 +4,8 @@
 #include <math.h>
 
 #define MAX_BULLETS 100
-#define MAX_TARGETS 10
-#define PLAYER_SPEED 200
+#define MAX_TARGETS 15
+#define PLAYER_SPEED 100
 #define BULLET_SPEED 800
 
 typedef struct {
@@ -30,8 +30,8 @@ typedef struct {
 } Wall;
 
 int main() {
-    const int screenWidth = 800;
-    const int screenHeight = 600;
+    const int screenWidth = 1000;
+    const int screenHeight = 800;
 
     InitWindow(screenWidth, screenHeight, "Top-Down Shooter");
 
@@ -42,8 +42,36 @@ int main() {
     Target targets[MAX_TARGETS] = {0};
 
     Wall walls[] = {
-        {{100, 400, 600, 20}, GRAY},
-        {{500, 700, 90, 20}, GRAY},
+        {{0, 0, screenWidth, 5}, GRAY},
+        {{0, 0, 5, screenHeight}, GRAY},
+        {{screenWidth, 0, 5, screenHeight}, GRAY},
+        {{0, screenHeight - 5, screenWidth, 5}, GRAY},
+        {{screenWidth - 5, 0, 5, screenHeight}, GRAY},
+            // Horizontal Walls
+            {{80, 80, 140, 10}, GRAY},
+            {{692, 404, 227, 10}, GRAY},
+            {{513, 163, 415, 10}, GRAY},
+            {{223, 521, 208, 10}, GRAY},
+            {{103, 224, 88, 10}, GRAY},
+            {{257, 600, 187, 10}, GRAY},
+            {{46, 700, 231, 10}, GRAY},
+            {{116, 92, 99, 10}, GRAY},
+            {{730, 57, 205, 10}, GRAY},
+            {{154, 307, 269, 10}, GRAY},
+            
+            // Vertical Walls
+            {{80, 60, 10, 140}, GRAY},
+            {{500, 450, 10, 140}, GRAY},
+            {{327, 392, 10, 247}, GRAY},
+            {{679, 88, 10, 250}, GRAY},
+            {{869, 327, 10, 147}, GRAY},
+            {{269, 168, 10, 213}, GRAY},
+            {{116, 338, 10, 84}, GRAY},
+            {{845, 60, 10, 101}, GRAY},
+            {{848, 662, 10, 134}, GRAY},
+            {{587, 357, 10, 186}, GRAY},
+            {{117, 109, 10, 237}, GRAY},
+            
     };
 
     const int numWalls = sizeof(walls) / sizeof(walls[0]);
@@ -52,7 +80,7 @@ int main() {
 
     // Timer variables for target spawning
     double targetSpawnTimer = 0;
-    const double targetSpawnInterval = 2.0; // Spawn a target every 2 seconds
+    const double targetSpawnInterval = 1.0; // Spawn a target every 2 seconds
 
     while (!WindowShouldClose()) {
         // Update
@@ -183,7 +211,7 @@ int main() {
         }
         
         #define SHOTGUN_BULLETS 6
-        #define SHOTGUN_ANGLE_SPREAD 60
+        #define SHOTGUN_ANGLE_SPREAD 20
 
 // ...
 
@@ -191,7 +219,7 @@ bool shotgunMode = false;
 
 // ...
 
-if (IsKeyDown(KEY_R)) {
+if (IsMouseButtonDown(MOUSE_RIGHT_BUTTON)) {
     shotgunMode = true;
 } else {
     shotgunMode = false;
@@ -221,8 +249,8 @@ if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             for (int j = 0; j < MAX_BULLETS; j++) {
                 if (!bullets[j].active) {
                     bullets[j].position = player.position;
-                    bullets[j].speed = (Vector2){BULLET_SPEED * cosf((startAngle + i * angleIncrement) * DEG2RAD),
-                                                BULLET_SPEED * sinf((startAngle + i * angleIncrement) * DEG2RAD)};
+                    bullets[j].speed = (Vector2){(BULLET_SPEED - 400) * cosf((startAngle + i * angleIncrement) * DEG2RAD),
+                                                (BULLET_SPEED - 400) * sinf((startAngle + i * angleIncrement) * DEG2RAD)};
                     bullets[j].active = true;
                     break;
                 }
